@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@deck.gl/google-maps':
+        specifier: ^9.3.2
+        version: 9.3.2(@deck.gl/core@9.3.2)(@luma.gl/core@9.3.3)(@luma.gl/webgl@9.3.3(@luma.gl/core@9.3.3))
       '@deck.gl/react':
         specifier: ^9.3.2
         version: 9.3.2(@deck.gl/core@9.3.2)(@deck.gl/widgets@9.3.2(@deck.gl/core@9.3.2)(@luma.gl/core@9.3.3))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
@@ -129,6 +132,13 @@ packages:
 
   '@deck.gl/core@9.3.2':
     resolution: {integrity: sha512-32Va3np0Zdlz/LBNtDWCs4EkKqdHmXcbGmVp4+7i1Cpdza8y8CFmJs2VPOmSX1fwHvNCGkAZV/SFZOfDb2INsg==}
+
+  '@deck.gl/google-maps@9.3.2':
+    resolution: {integrity: sha512-oi2wbdgQns0nbqoX22WVTS7BLFuXWfdg68Iz/EjgTnmOo/a/M4Q90DzLj1s/W4fecMOy71eWRS4Ym4Zf64OqTg==}
+    peerDependencies:
+      '@deck.gl/core': ~9.3.0
+      '@luma.gl/core': ~9.3.3
+      '@luma.gl/webgl': ~9.3.3
 
   '@deck.gl/react@9.3.2':
     resolution: {integrity: sha512-XGxoyTQiQWvBHt+q5bATOHlv9INdl0xwt/IxP4eMbbE9XhLreeGTTb0CDGbk+SwDHVwQuLFp5JHZNibUt0J3fA==}
@@ -1250,6 +1260,14 @@ snapshots:
       mjolnir.js: 3.0.0
     transitivePeerDependencies:
       - '@75lb/nature'
+
+  '@deck.gl/google-maps@9.3.2(@deck.gl/core@9.3.2)(@luma.gl/core@9.3.3)(@luma.gl/webgl@9.3.3(@luma.gl/core@9.3.3))':
+    dependencies:
+      '@deck.gl/core': 9.3.2
+      '@luma.gl/core': 9.3.3
+      '@luma.gl/webgl': 9.3.3(@luma.gl/core@9.3.3)
+      '@math.gl/core': 4.1.0
+      '@types/google.maps': 3.64.0
 
   '@deck.gl/react@9.3.2(@deck.gl/core@9.3.2)(@deck.gl/widgets@9.3.2(@deck.gl/core@9.3.2)(@luma.gl/core@9.3.3))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)':
     dependencies:
