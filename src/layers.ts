@@ -7,7 +7,7 @@ export type DataPoint = [longitude: number, latitude: number, gender: number];
 export type DataType = { hex: string; count: number; };
 export const layers = () => {
 
-  const DATA_URL = 'https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/scatterplot/manhattan.json'; // eslint-disable-line
+  const DATA_URL = 'https://raw.githubusercontent.com/visgl/deck.gl-data/master/examples/scatterplot/manhattan.json';
   const maleColor = [0, 128, 255, 255];
   const femaleColor = [255, 0, 128, 255];
   type GridCell = { id: string; value: number };
@@ -53,13 +53,11 @@ export const layers = () => {
     pickable: true
   });
 
+  // @ts-ignore
   const commonLayerProps = {
     opacity: 0.8,
     filled: true,
     getFillColor: (d: any) => LANDCOVER_LEGEND[d.value].color || [0, 0, 0],
-    // getFilterCategory: (d: GridCell) => d.value,
-    // filterCategories,
-    // extensions: [new DataFilterExtension({ categorySize: 1 })],
     extruded: true,
     getElevation: 50000,
     beforeId: 'watername_ocean',
@@ -67,7 +65,16 @@ export const layers = () => {
     loadOptions: { csv: { header: true, dynamicTyping: false } }
   } as Omit<H3HexagonLayerProps<GridCell>, 'data' | 'id'> & { beforeId: string };
 
-  const layers = [h3Landcover];
+  const h3colorLULC = new H3HexagonLayer<GridCell>({
+    id: 'h3-layer',
+    data: H3_URL,
+    getHexagon: (d: GridCell) => d.id,
+    ...commonLayerProps
+  });
+
+  // console.log('props', scatterLayer.getBounds())
+
+  const layers = [h3colorLULC];
 
   return layers;
 }
