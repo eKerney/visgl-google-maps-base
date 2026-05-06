@@ -10,8 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@deck.gl/geo-layers": "^9.3.2",
     "@deck.gl/google-maps": "^9.3.2",
+    "@deck.gl/layers": "^9.3.2",
     "@deck.gl/react": "^9.3.2",
+    "@loaders.gl/csv": "^4.4.1",
     "@vis.gl/react-google-maps": "^1.8.3",
     "react": "^19.2.5",
     "react-dom": "^19.2.5"

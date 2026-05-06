@@ -1,17 +1,19 @@
-import { APIProvider, Circle, limitTiltRange, Map, Marker } from '@vis.gl/react-google-maps';
+import { AdvancedMarker, APIProvider, Circle, Map } from '@vis.gl/react-google-maps';
 import './App.css';
 import DeckGL from '@deck.gl/react';
 import { DeckGlOverlay } from './DeckGLOverlay';
+import { layers } from './layers';
 
-const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || 'YOUR_PLACEHOLDER_KEY';
+const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
 function App() {
-  const defaultCenter = { lat: 41.865, lng: -87.64 };
-  const INITIAL_VIEW_STATE = {
-    latitude: 41.865,
-    longitude: -87.64,
-    zoom: 10,
-  };
+  // const defaultCenter = { lat: 41.865, lng: -87.64 }; //chicago
+  const defaultCenter = { lat: 37.7, lng: -122.4 };
+  // const INITIAL_VIEW_STATE = {
+  //   latitude: 41.865,
+  //   longitude: -87.64,
+  //   zoom: 10,
+  // };
 
   return (
     <div className="map-container">
@@ -24,12 +26,13 @@ function App() {
         <Map
           style={{ width: '100vw', height: '100vh' }}
           defaultCenter={defaultCenter}
-          defaultZoom={13}
+          defaultZoom={10}
           gestureHandling={'greedy'}
           disableDefaultUI={false}
+          mapId={'4f6dde3310be51d7'}
         >
-          <DeckGlOverlay layers={[]} />
-          <Marker position={defaultCenter} />
+          <DeckGlOverlay layers={[layers()]} />
+          <AdvancedMarker position={defaultCenter} />
           <Circle
             center={{ lat: 42, lng: -87.8 }}
             radius={10000}
@@ -46,4 +49,3 @@ function App() {
 }
 
 export default App;
-// onViewStateChange={limitTiltRange({ INITIAL_VIEW_STATE })}>
