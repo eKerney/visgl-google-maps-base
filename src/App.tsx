@@ -1,28 +1,20 @@
 import { AdvancedMarker, APIProvider, Circle, Map } from '@vis.gl/react-google-maps';
 import './App.css';
-import DeckGL from '@deck.gl/react';
 import { DeckGlOverlay } from './DeckGLOverlay';
 import { layers } from './layers';
+// import { PlaceOverview } from '@googlemaps/extended-component-library/place_overview.js';
+import { PlaceDirectionsButton, PlaceOverview } from '@googlemaps/extended-component-library/react';
 
 const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
 function App() {
   // const defaultCenter = { lat: 41.865, lng: -87.64 }; //chicago
   const defaultCenter = { lat: 37.7, lng: -122.4 };
-  // const INITIAL_VIEW_STATE = {
-  //   latitude: 41.865,
-  //   longitude: -87.64,
-  //   zoom: 10,
-  // };
 
   return (
     <div className="map-container">
 
       <APIProvider apiKey={API_KEY}>
-        {/* <DeckGL */}
-        {/*   initialViewState={INITIAL_VIEW_STATE} */}
-        {/*   controller={true} */}
-        {/* > */}
         <Map
           style={{ width: '100vw', height: '100vh' }}
           defaultCenter={defaultCenter}
@@ -41,8 +33,12 @@ function App() {
             strokeColor={'#0088ff'}
             strokeWeight={2}
           />
+          {/* <PlaceOverview size="large" place="ChIJ39Y-tdg1fYcRQcZcBb499do" googleLogoAlreadyDisplayed> */}
+          {/*   <PlaceDirectionsButton slot="action" origin={origin} ariaLabel="see directions on Google Maps"> */}
+          {/*     Directions */}
+          {/*   </PlaceDirectionsButton> */}
+          {/* </PlaceOverview> */}
         </Map>
-        {/* </DeckGL> */}
       </APIProvider>
     </div >
   );
