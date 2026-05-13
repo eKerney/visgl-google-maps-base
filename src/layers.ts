@@ -55,7 +55,7 @@ export const layers = () => {
 
   // @ts-ignore
   const commonLayerProps = {
-    opacity: 0.8,
+    opacity: 0.5,
     filled: true,
     getFillColor: (d: any) => LANDCOVER_LEGEND[d.value].color || [0, 0, 0],
     extruded: true,
